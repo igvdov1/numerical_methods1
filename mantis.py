@@ -32,3 +32,4 @@ if __name__ == '__main__':
     eps = 0.01
 
     print(method_of_half_divide(func, c2, c1, eps, v, g, m, t))
+
