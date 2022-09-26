@@ -1,0 +1,36 @@
+from math import exp
+from differential import derivative
+from matplotlib import pyplot as plt
+def f(x):
+
+    return exp(-x)-x
+def f2(x):
+    return x**10 - 1
+def nuton_method(x0, dx, f, eps, kol_op_in_f):
+    x2 = x0+1
+    count = 0
+    countop = 0
+    x = []
+    y = []
+    while (abs(x0 - x2) > eps):
+        x1 = x0 - f(x0) / derivative(f, x0, dx)
+        x2 = x0
+        x0 = x1
+        count += 1
+        countop += kol_op_in_f * 3 + 4
+        x.append(x2)
+        y.append(f(x2))
+    plt.plot(x,y)
+    plt.scatter(x,y)
+    for i in range(len(x)):
+        plt.annotate((x[i], y[i]), (x[i], y[i]))
+    plt.show()
+    return x2, count, countop
+if __name__ == "__main__":
+    dx = 1e-8
+    x0 = 0.5
+    eps = 0.0001
+
+
+    print(nuton_method(x0, dx,f2,eps, 3))
+    # print(exact_nuton(x0, x2,dx,f,eps))
