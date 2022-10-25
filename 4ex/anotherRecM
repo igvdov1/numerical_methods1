@@ -1,0 +1,4 @@
+import numpy as np
+
+def rectangleMethod(x1, x2, eps, f):
+    a = np.linspace(x1 ,x2, abs(x2-x1)/20)
