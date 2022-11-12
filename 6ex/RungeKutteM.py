@@ -12,7 +12,7 @@ def RungeKutteMethod(f, start, fstart, x2, eps, orig):
     dy = h1/6*(k1 + 2 * k2 + 2 * k3 + k4)
     y1 = fstart + dy
     ans = []
-    ans.append(start, fstart, y1, k1, k2, k3, k4)
+    # ans.append(start, fstart, y1, k1, k2, k3, k4)
     
         
     print(start+h1/2, fstart + h1/2*k1)

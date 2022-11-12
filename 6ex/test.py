@@ -5,5 +5,6 @@ def f(x, y):
 def answer(x, y):
       return 3/4*exp(-2*x) + 1/2 * (x**2) - 1/2 * x+ 1/4
 if __name__ == '__main__':
-    start = 
+    start = 1
+    eps = 1
     print(RungeKutteMethod(f, 0, 1, 1, eps, answer))
