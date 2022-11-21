@@ -1,5 +1,5 @@
 import numpy as np
-
+import math
 # def Runge_for_h(f, start, fstart, x2, h):
 #     k = f(start, fstart)
 #     mas = np.linspace(start, x2, h)
@@ -52,9 +52,9 @@ def RungeKutteMethod(f, g, start, xstart, ystart, t2, eps, orig, orig2):
     
         if(h != 2):
             print(i)
-            a.append([ans[h - 1][0], ans[h - 1][1], ans[h - 1][0] / a[j - 1][0], ans[h - 1][1] / a[j - 1][1],  abs(ans[h - 1][0] - orig(mas[h - 1])), abs(ans[h - 1][1] - orig2(mas[h - 1])), abs(ans[h - 1][0] - orig(mas[h - 1]))/(a[j - 1][5]), abs(ans[h - 1][1] - orig2(mas[h - 1]))/(a[j - 1][5])])
+            a.append([ans[h - 1][0], ans[h - 1][1], ans[h - 1][0] / a[j - 1][0], ans[h - 1][1] / a[j - 1][1],  abs(ans[h - 1][0] - orig(mas[h - 1])), abs(ans[h - 1][1] - orig2(mas[h - 1])), math.log2(abs(ans[h - 1][0] - orig(mas[h - 1]))/(a[j - 1][5])), math.log2(abs(ans[h - 1][1] - orig2(mas[h - 1]))/(a[j - 1][5])), max(math.log2(abs(ans[h - 1][0] - orig(mas[h - 1]))/(a[j - 1][5])), math.log2(abs(ans[h - 1][1] - orig2(mas[h - 1]))/(a[j - 1][5])))])
         else:
-            a.append([ans[h - 1][0], ans[h - 1][1], 'null', 'null',  abs(ans[h - 1][0] - orig(mas[h - 1])), abs(ans[h - 1][1] - orig2(mas[h - 1])), 'null', 'null'])
+            a.append([ans[h - 1][0], ans[h - 1][1], 'null', 'null',  abs(ans[h - 1][0] - orig(mas[h - 1])), abs(ans[h - 1][1] - orig2(mas[h - 1])), 'null', 'null', 'null'])
         if abs(ans[h - 1][0] - orig(mas[h - 1])) < eps and abs(ans[h - 1][1] - orig2(mas[h - 1])) < eps:
             return {'ans': ans, 'a': a}
         j += 1    

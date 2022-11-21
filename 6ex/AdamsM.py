@@ -1,9 +1,6 @@
 import numpy as np
-
-def adams_method(f, g, start, xstart, ystart, t2, eps, orig, orig2):
-    a = []
-    mas = []
-    return {'mas': mas,
-            'a': a}
+from RungeKutteM import RungeKutteMethod
+def generate_first_3_points(f, g, start, xstart, ystart, array):
     pass
-k = adams_method(...)['mas']
+def adams_method(f, g, start, xstart, ystart, t2, eps, orig, orig2):
+    pass

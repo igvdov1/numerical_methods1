@@ -17,7 +17,7 @@ def answery(t):
     return exp(-2 * t) * (4 * math.cos(3 * t) + 3 * math.sin(3 * t)) + 1
 if __name__ == '__main__':
     start = 1
-    eps = 1e-12
+    eps = 1e-14
     xstart = 6
     ystart = 5
     d = []
@@ -47,7 +47,8 @@ if __name__ == '__main__':
     plt.plot(a, orig, color = "red")
     plt.plot(a, my, color = 'orange')
     plt.plot(a, my1, color = 'green')
-    plt.scatter(a, orig1, color = "green")
-    plt.scatter(a, orig, color = 'black')
+    plt.scatter(a,my, color = "green")
+    plt.scatter(a, my1, color = 'black')
     plt.show()
+    
  
