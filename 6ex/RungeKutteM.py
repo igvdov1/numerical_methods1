@@ -23,7 +23,22 @@ import math
 #         ans.append([mas[i], ans[i-1][6], k1, k2, k3, k4, y1])
     
 #     return ans
-
+def Runge_Kutte_for_4(f,g , start, xstart, ystart, mas, h1):
+    ans = []
+    ans.append([xstart, ystart])
+    for i in range(1, 4):
+        k1 = f(mas[i], ans[i - 1][0], ans[i - 1][1]) 
+        m1 = g(mas[i], ans[i - 1][0], ans[i - 1][1]) 
+        k2 = f(mas[i] + h1 / 2, ans[i - 1][0] + h1 *k1 / 2, ans[i -1 ][1] + h1 * m1 / 2) 
+        m2 = g(mas[i] + h1 / 2, ans[i - 1][0] + h1 *k1 / 2, ans[i - 1][1] + h1 * m1 / 2) 
+        k3 = f(mas[i] + h1 / 2, ans[i - 1][0] + h1 * k2 / 2, ans[i - 1][1] + h1 * m2 / 2) 
+        m3 = g(mas[i] + h1 / 2, ans[i - 1][0] + h1 * k2 / 2, ans[i - 1][1] + h1 * m2 / 2) 
+        k4 = f(mas[i] + h1, ans[i -1][0] + h1 * k3, ans[i - 1][1] + h1 * m3) 
+        m4 = g(mas[i] + h1, ans[i - 1][0] + h1 * k3, ans[i - 1][1] + h1 * m3) 
+        dx = h1/6 * (k1 + 2 * k2 + 2 * k3 + k4)
+        dy = h1/6 * (m1 + 2 * m2 + 2 * m3 + m4)
+        ans.append([ans[i - 1][0] + dx, ans[i - 1][1] + dy])
+    return ans
 
 def RungeKutteMethod(f, g, start, xstart, ystart, t2, eps, orig, orig2):
     h = 2
