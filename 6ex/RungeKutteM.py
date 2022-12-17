@@ -33,7 +33,7 @@ def RungeKutteMethod(func: list, start, end, start_value: list, h):
         k4 = [j(mas[i] + h1 / 2, ans[i - 1][0] + h1 *k3[0] / 2, ans[i -1 ][1] + h1 * k3[1] / 2) for j in func]
       
         dn = [h1/6 * (k1[j] + 2 * k2[j] + 2 * k3[j] + k4[j]) for j in range(len(func))]
-        # newappen = [ans[i - 1][j] + dn[j] for j in range(len(func))]
+        
         ans.append([ans[i - 1][j] + dn[j] for j in range(len(func))])
         
     
