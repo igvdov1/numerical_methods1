@@ -19,19 +19,14 @@ if __name__ == '__main__':
     start = 1
     eps = 0.01
     xstart = 6
+
     ystart = 5
     d = []
     head = ['N', 'eps', 'y', 'yi/y(i-1)']
-    # while eps >= 1e-12:
-    #     k = RungeKutteMethod(xfunc, yfunc, 0, xstart, ystart, 10, eps, answerx, answery)['ans']
-    #     eps /= 10
-    #     d.append([len(k), eps, k[len(k)-1][1], k[len(k)-1][1]/answerx(10)])
-    # print(tabulate(d, headers = head, tablefmt = 'grid'))
-    k = RungeKutteMethod(xfunc, yfunc, 0, xstart, ystart, 1, eps, answerx, answery)['ans']
+    k = RungeKutteMethod([xfunc, yfunc], 0, 1, [xstart, ystart], 128)
     print(pd.DataFrame(k))
-    b = RungeKutteMethod(xfunc, yfunc, 0, xstart, ystart, 1, eps, answerx, answery)['a']
-    print(pd.DataFrame(b))
-    a = np.linspace(0, 1, k[len(k) - 1][2])
+
+    a = np.linspace(0, 1, 128)
     
 
     my = []

@@ -6,7 +6,7 @@ from matplotlib import pyplot as plt
 import numpy as np
 from AdamsM import adams_method
 from tabulate import tabulate
-from RungeKutteM import Runge_Kutte_for_4
+
 def xfunc(t, x, y): 
     return 2 * x - 5 * y + 3
 def yfunc(t, x, y):
@@ -18,12 +18,11 @@ def answery(t):
 
 if __name__ == '__main__':
     
-    eps =  1e-14
+    
     xstart = 6
     ystart = 5
-    c = adams_method(xfunc, yfunc, 0, xstart, ystart, 1, eps, answerx, answery)['a']
-    print(pd.DataFrame(c))
-    k = adams_method(xfunc, yfunc, 0, xstart, ystart, 1, eps, answerx, answery)['ans']
+    
+    k = adams_method([xfunc, yfunc], 0, 1, [xstart, ystart], 128)
     print(pd.DataFrame(k))
     a = np.linspace(0, 1, len(k))
 
